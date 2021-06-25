@@ -1,0 +1,15 @@
+@import 'src/styles/mixin.scss';
+.layout {
+  width: 100vw;
+  height: 100vh;
+  @include flex-ui;
+  @include flex-direction-column;
+}
+
+.container {
+  @extend .fx-center;
+  padding: 50px;
+  > div {
+    width: 1200px;
+  }
+}

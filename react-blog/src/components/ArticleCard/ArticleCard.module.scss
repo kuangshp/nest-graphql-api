@@ -1,0 +1,24 @@
+.item{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px dashed #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  .title{
+    color: #333;
+  }
+  .img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  } 
+}
+
+.pages{
+  text-align: center;
+  margin: 30px auto;
+}

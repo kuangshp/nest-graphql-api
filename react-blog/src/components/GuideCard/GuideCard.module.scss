@@ -1,0 +1,50 @@
+@import 'src/styles/mixin.scss';
+.guideCard {
+  @include flex-direction-column;
+  @include flex;
+  .nav {
+    padding: 10px 20px 0;
+    @extend .normal-fade;
+    margin-bottom: 10px;
+  }
+  .items {
+    @extend .fx-center;
+    @include flex-direction-column;
+    .item {
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
+      }
+      padding: 0 20px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      @extend .fx-normal;
+      .adPic {
+        width: 70px;
+        height: 70px;
+        > img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content {
+        flex: 1;
+        margin-left: 20px;
+        .time {
+          @extend .sm-fade;
+        }
+        .desc {
+          @include ellipsis(2);
+          @extend .sm-fade;
+        }
+        .title {
+          margin-top: 5px;
+          @extend .normal-primary;
+        }
+      }
+    }
+  }
+}

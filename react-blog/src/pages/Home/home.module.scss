@@ -1,0 +1,18 @@
+@import 'src/styles/mixin.scss';
+
+.column {
+  @include flex-ui;
+  > div {
+    padding: 10px;
+  }
+  .left,
+  .right {
+    width: 25%;
+  }
+  .middle {
+    width: 50%;
+  }
+  .middle1{
+    width: 75%;
+  }
+}

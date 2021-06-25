@@ -1,0 +1,108 @@
+@import 'src/styles/mixin.scss';
+.commentContainer {
+  padding: 10px;
+
+  .title {
+    @extend .lg-primary;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+  }
+  .comment {
+    @extend .fx-normal-column;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+    padding: 10px 10px 30px;
+    .detial {
+      @extend .fx-normal-column;
+      > .user {
+        @extend .fx-normal;
+        > .userInfo {
+          margin-left: 15px;
+          @extend .fx-normal-column;
+          align-items: flex-start;
+        }
+      }
+      .agrees {
+        @extend .normal-fade;
+        margin: 10px 0;
+      }
+      .content {
+        @extend .normal-primary;
+        line-height: 1.5;
+      }
+      .time {
+        @extend .sm-fade;
+        margin: 10px 0;
+      }
+    }
+    .tools {
+      @extend .fx-normal;
+      font-size: 16px;
+      margin-top: 10px;
+      > div {
+        cursor: pointer;
+        margin-right: 20px;
+        > span {
+          margin-right: 5px;
+        }
+      }
+      .like {
+        color: #06f;
+        padding: 5px 30px;
+        border-radius: 5px;
+        background-color: rgba(0, 102, 255, 0.1);
+      }
+    }
+  }
+}
+
+.commentList {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+  .top {
+    @extend .normal-primary-w;
+    background-color: #efefef;
+    padding: 10px;
+  }
+  .commentItem {
+    padding: 20px;
+    @extend .fx-normal;
+    align-items: baseline;
+    .item {
+      flex: 1;
+      margin-left: 10px;
+      .toReply {
+        margin-top: 20px;
+        :global {
+          .ant-input {
+            // width: 500px;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .commentUser {
+      @extend .fx-normal;
+      @include space-between;
+      padding: 10px 0;
+      .nickname {
+        @extend .normal-primary-w;
+      }
+      .time {
+        @extend .sm-fade;
+      }
+    }
+  }
+  .more {
+    text-align: center;
+    color: #06f;
+    padding: 20px 0;
+    cursor: pointer;
+  }
+}
+
+
+.comment_tools{
+  display: flex;
+}

@@ -1,0 +1,99 @@
+@import 'src/styles/mixin.scss';
+
+.article {
+  width: 100%;
+  @include flex-ui;
+  .details {
+    width: 75%;
+    padding: 30px;
+    margin-right: 30px;
+    .banner {
+      height: 400px;
+      overflow: hidden;
+      > img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .title {
+      @extend .lg-primary;
+      margin: 20px 0 10px;
+    }
+    .tags {
+      @extend .fx-normal;
+      @extend .sm-fade;
+      > * {
+        margin-right: 10px;
+      }
+    }
+    .content {
+      margin-top: 10px;
+      text-indent: 2em;
+      img {
+        margin: 10px 0;
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+    .recommend {
+      @include flex-ui;
+      margin: 30px;
+      justify-content: flex-end;
+      font-size: 16px;
+      > .container {
+        @include flex-ui;
+        min-height: 100px;
+        > div {
+          cursor: pointer;
+          min-width: 80px;
+          margin-left: 20px;
+          @extend .fx-center;
+          @include flex-direction-column;
+          padding: 10px;
+          border-radius: 10px;
+          max-height: 60px;
+        }
+        .star {
+          color: rgba(#1890ff, 1);
+          border: 2px solid rgba(#1890ff, 0.3);
+          transition: all 0.2s;
+          &:hover {
+            box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 1px rgb(0 0 0 / 10%);
+            transform: scale(1.1);
+            font-size: 18px;
+          }
+        }
+        .read {
+          color: rgba(#ff66ff, 1);
+          border: 2px solid rgba(#ff66ff, 0.3);
+          transition: all 0.2s;
+          &:hover {
+            box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 1px rgb(0 0 0 / 10%);
+            transform: scale(1.1);
+            font-size: 18px;
+          }
+        }
+        .collage {
+          color: rgba(#ffcc00, 1);
+          border: 2px solid rgba(#ffcc00, 0.3);
+          transition: all 0.2s;
+          &:hover {
+            box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 1px rgb(0 0 0 / 10%);
+            transform: scale(1.1);
+            font-size: 18px;
+          }
+        }
+        .isSelect {
+          color: gray;
+          border: 2px solid gray;
+        }
+      }
+    }
+    .count {
+      @extend .sm-fade;
+    }
+  }
+  .other {
+    width: 25%;
+  }
+}

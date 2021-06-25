@@ -1,0 +1,92 @@
+@mixin ellipsis($num: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+
+@mixin flex-ui {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin space-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+@mixin center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@mixin align-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@mixin flex-direction-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+@mixin flex-wrap {
+  flex-wrap: wrap;
+}
+@mixin flex {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.fx-center {
+  @include flex-ui;
+  @include center;
+  @include align-center;
+}
+.fx-normal {
+  @include flex-ui;
+  @include align-center;
+}
+.fx-normal-column {
+  @include flex-ui;
+  @include flex-direction-column;
+}
+
+.sm-fade {
+  color: #7a7a7a;
+  font-size: 12px;
+}
+.normal-fade {
+  color: #7a7a7a;
+  font-size: 14px;
+}
+
+.normal-primary {
+  color: #4a4a4a;
+  font-size: 14px;
+}
+.normal-primary-w {
+  @extend .normal-primary;
+  font-weight: 600;
+}
+
+.lg-primary {
+  color: #4a4a4a;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.lg-primary-normal {
+  color: #fff;
+  font-size: 16px;
+}
+
+.lg-primary-thin {
+  color: #4a4a4a;
+  font-size: 18px;
+}

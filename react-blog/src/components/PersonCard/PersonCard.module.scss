@@ -1,0 +1,67 @@
+@import 'src/styles/mixin.scss';
+.personCard {
+  @extend .fx-center;
+  @include flex-direction-column;
+  padding: 20px;
+  text-align: center;
+  @include flex;
+  > div {
+    width: 100%;
+  }
+  .infos {
+    .avatar {
+      overflow: hidden;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      margin: 0 auto;
+      img {
+        width: 100%;
+      }
+    }
+    .nickname {
+      @extend .lg-primary;
+      margin-top: 10px;
+    }
+    .addr,
+    .job {
+      @extend .sm-fade;
+      margin: 5px 0;
+    }
+  }
+  .tags {
+    @extend .fx-center;
+    margin-top: 20px;
+    > div {
+      @include flex;
+      @extend .fx-center;
+      @include flex-direction-column;
+      :nth-child(2) {
+        margin-top: 5px;
+        @extend .lg-primary-thin;
+      }
+    }
+    div + div {
+      border-left: 2px solid #efefef;
+    }
+  }
+  .action {
+    margin: 20px 0 30px;
+    > div {
+      @extend .lg-primary-normal;
+      background-color: #3273dc;
+      border-radius: 18px;
+      padding: 5px 0;
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    > span {
+      > svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import 'src/styles/mixin.scss';
+
+.navbar {
+  @extend .fx-center;
+  transition: opacity 0.3s ease-out 0s, transform 0.3s ease-out 0s;
+  opacity: 1;
+  transform: translateY(0px);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 5%);
+  min-height: 80px;
+
+  .content {
+    align-items: stretch;
+    @include flex-ui;
+    align-items: stretch;
+    width: 1200px;
+    min-height: 80px;
+    .brand {
+      @extend .fx-center;
+      .logo {
+        height: 30px;
+      }
+    }
+    .menus {
+      @extend .fx-normal;
+      @include space-between;
+      @include flex;
+      .items {
+        > a {
+          padding: 20px;
+        }
+      }
+      .user {
+        > a {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

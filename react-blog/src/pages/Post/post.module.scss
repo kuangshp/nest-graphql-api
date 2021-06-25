@@ -1,0 +1,10 @@
+@import 'src/styles/mixin.scss';
+
+.post {
+  @include flex-ui;
+  padding: 30px;
+  width: 70%;
+  .form {
+    width: 100%;
+  }
+}

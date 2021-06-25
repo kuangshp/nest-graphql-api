@@ -1,0 +1,355 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CategoryEntity {
+  """主键ID"""
+  id: Float!
+
+  """创建时间"""
+  createdAt: DateTime!
+
+  """更新时间"""
+  updatedAt: DateTime!
+
+  """软删除时间"""
+  deletedAt: DateTime!
+
+  """分类名称"""
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type UserEntity {
+  """主键ID"""
+  id: Float!
+
+  """创建时间"""
+  createdAt: DateTime!
+
+  """更新时间"""
+  updatedAt: DateTime!
+
+  """软删除时间"""
+  deletedAt: DateTime!
+
+  """用户名"""
+  username: String!
+
+  """手机号码"""
+  mobile: String!
+
+  """用户头像"""
+  avatar: String!
+}
+
+type UserDetailVo {
+  """用户ID"""
+  id: ID!
+
+  """用户名"""
+  username: String!
+
+  """创建时间"""
+  createdAt: DateTime!
+
+  """更新时间"""
+  updatedAt: DateTime!
+
+  """文章数量"""
+  postCount: Int!
+
+  """点赞数量"""
+  likeCount: Int!
+
+  """收藏数量"""
+  collectCount: Int!
+
+  """关注数量"""
+  attentionCount: Int!
+}
+
+type PostItem {
+  """主键ID"""
+  id: Float!
+
+  """创建时间"""
+  createdAt: DateTime!
+
+  """更新时间"""
+  updatedAt: DateTime!
+
+  """标题"""
+  title: String!
+
+  """文章封面图"""
+  imgUrl: String!
+
+  """文章内容"""
+  content: String!
+
+  """分类ID"""
+  categoryId: Float!
+
+  """分类"""
+  categoryName: String!
+
+  """浏览数"""
+  lookCount: Float!
+
+  """点赞数"""
+  likeCount: Float!
+
+  """收藏数"""
+  collectCount: Float!
+
+  """用户"""
+  userName: String!
+
+  """是否点赞，如果返回数字就表示已经点赞"""
+  isLike: Float
+
+  """是否收藏，如果返回数字就表示已经收藏"""
+  isCollect: Float
+}
+
+type PostListVo {
+  """返回的数据"""
+  data: [PostItem!]!
+
+  """总共多少条数"""
+  total: Float!
+}
+
+type LoginVo {
+  """用户ID"""
+  id: ID!
+
+  """用户名"""
+  username: String!
+
+  """登录token"""
+  token: String
+}
+
+type CommentEntity {
+  """主键ID"""
+  id: Float!
+
+  """创建时间"""
+  createdAt: DateTime!
+
+  """更新时间"""
+  updatedAt: DateTime!
+
+  """软删除时间"""
+  deletedAt: DateTime!
+
+  """用户ID"""
+  userId: Float!
+
+  """文章ID"""
+  postId: Float!
+
+  """评论内容"""
+  comment: String!
+
+  """父评论ID"""
+  parentId: Float!
+
+  """评论的用户名"""
+  username: String!
+
+  """评论的用户头像"""
+  avatar: String!
+}
+
+type AttentionListVo {
+  """作者用户id"""
+  userId: Float!
+
+  """作者用户名"""
+  username: String!
+
+  """作者头像"""
+  avatar: String!
+}
+
+type Query {
+  """查询用户列表"""
+  userList: [UserEntity!]!
+
+  """根据用户id查询用户信息"""
+  userDetailById(id: Float!): UserDetailVo!
+
+  """分页查询文章数据"""
+  postsList(data: PostsInputDto): PostListVo!
+
+  """根据文章ID获取文章详情"""
+  postDetail(data: PostDetailInputDto!): PostItem!
+
+  """查询分类列表"""
+  categoryList: [CategoryEntity!]!
+
+  """登录接口"""
+  login(data: LoginUserInputDto!): LoginVo!
+
+  """根据手机号码获取短信验证码"""
+  codeByMobile(data: SmsInputDto!): String!
+
+  """验证短信验证码"""
+  checkoutCode(data: CheckoutSmsInputDto!): String!
+
+  """根据文章id和父评论来获取子评论"""
+  commentList(data: CommentInputDto!): [CommentEntity!]!
+}
+
+input PostsInputDto {
+  """文章标题"""
+  title: String
+
+  """多少条数据"""
+  pageSize: Float
+
+  """当前是多少页"""
+  pageNumber: Float
+
+  """当前登录用户id"""
+  userId: Float
+}
+
+input PostDetailInputDto {
+  """文章id"""
+  postId: Float
+
+  """当前登录用户id"""
+  userId: Float
+}
+
+input LoginUserInputDto {
+  """用户名"""
+  username: String!
+
+  """密码"""
+  password: String!
+}
+
+input SmsInputDto {
+  """手机号码"""
+  mobile: String!
+}
+
+input CheckoutSmsInputDto {
+  """手机号码"""
+  mobile: String!
+
+  """短信验证码"""
+  code: String!
+}
+
+input CommentInputDto {
+  """文章ID"""
+  postId: Int!
+
+  """父评论ID"""
+  parentId: Int
+}
+
+type Mutation {
+  """上传图片"""
+  fileUpload(file: Upload!): String!
+
+  """创建文章"""
+  createPost(data: CreatePostsInputDto!): String!
+
+  """根据id删除文章"""
+  deletePostById(id: Float!): String!
+
+  """根据id修改文章"""
+  modifyPostById(data: ModifyPostsInputDto!, id: Float!): String!
+
+  """用户注册"""
+  register(data: RegisterUserInputDto!): String!
+
+  """给文章点赞"""
+  postLike(data: PostsLikeInputDto!): String!
+
+  """收藏文章"""
+  postCollect(data: PostsCollectInputDto!): String!
+
+  """文章的评论"""
+  postComment(data: PostsCommentInputDto!): String!
+
+  """关注作者"""
+  attention(postId: Float!): String!
+
+  """获取作者的关注列表"""
+  attentionListByUserId(userId: Float!): [AttentionListVo!]!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input CreatePostsInputDto {
+  """文章标题"""
+  title: String!
+
+  """文章封面图"""
+  imgUrl: String!
+
+  """文章内容"""
+  content: String!
+
+  """文章分类ID"""
+  categoryId: Float!
+}
+
+input ModifyPostsInputDto {
+  """文章标题"""
+  title: String
+
+  """文章封面图"""
+  imgUrl: String!
+
+  """文章内容"""
+  content: String
+
+  """文章分类ID"""
+  categoryId: Float
+}
+
+input RegisterUserInputDto {
+  """用户名"""
+  username: String!
+
+  """密码"""
+  password: String!
+
+  """确认密码"""
+  confirmPassword: String!
+}
+
+input PostsLikeInputDto {
+  """文章ID"""
+  postId: Float!
+}
+
+input PostsCollectInputDto {
+  """文章ID"""
+  postId: Float!
+}
+
+input PostsCommentInputDto {
+  """文章ID"""
+  postId: Int!
+
+  """评论内容"""
+  comment: String!
+
+  """父评论ID"""
+  parentId: Int
+}
