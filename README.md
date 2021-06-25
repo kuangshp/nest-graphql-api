@@ -40,5 +40,7 @@
 
 * 2、如果你还有技术问题，可以直接加我，我会帮你解答,如果你愿意也可以打赏一杯奶茶
   
+<div>
 <img src="./images/wx.jpeg" style="width:200px;height:200px;"><img src="./images/donate.jpeg" style="width:200px;height:250px">
+</div>
 
